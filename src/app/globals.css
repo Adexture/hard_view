@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0B0B0B;
+  --foreground: #E0E0E0;
+  --obsidian: #0B0B0B;
+  --charcoal: #1A1A1A;
+  --volt: #CEFF00;
+  --flare: #00F0FF;
+  --slate: #E0E0E0;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-obsidian: var(--obsidian);
+  --color-charcoal: var(--charcoal);
+  --color-volt: var(--volt);
+  --color-flare: var(--flare);
+  --color-slate: var(--slate);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--obsidian);
+  color: var(--slate);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
 }
+
+.glass-panel {
+  background: rgba(11, 11, 11, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glow-volt {
+  box-shadow: 0 0 20px rgba(206, 255, 0, 0.3);
+}
+
+.glow-flare {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.active-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 15px rgba(206, 255, 0, 0.6); }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+.hud-scanline {
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 240, 255, 0.05) 50%);
+  background-size: 100% 4px;
+}
+
